@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juega con la IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Paso 1 -->
+    <div id="step1" class="step">
+      <h2>¡Bienvenido!</h2>
+      <p>¿Quieres verte como una persona animada?<br> La IA te lo puede mostrar.</p>
+      <button id="startButton">Empezar</button>
+    </div>
+
+    <!-- Paso 2 -->
+    <div id="step2" class="step hidden">
+      <h2>Describe tu escena</h2>
+      <p>Completa los siguientes campos:</p>
+      <label for="texto1">Personaje</label>
+      <input type="text" id="texto1" name="texto1" required>
+      <label for="texto2">Lugar</label>
+      <input type="text" id="texto2" name="texto2" required>
+      <label for="texto3">Acción</label>
+      <input type="text" id="texto3" name="texto3" required>
+      <div class="button-row">
+        <button id="backToStep1">Ir atrás</button>
+        <button id="nextButton">Siguiente</button>
+      </div>
+    </div>
+
+    <!-- Paso 3 -->
+    <div id="step3" class="step hidden">
+      <h2>Ahora te sacaremos una foto</h2>
+      <div class="camera-container">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <img id="photo" alt="Foto tomada">
+      </div>
+      <button id="cameraButton">Abrir Cámara</button>
+      <div class="button-row">
+        <button id="backToStep2">Ir atrás</button>
+        <button id="sendButton" class="hidden">Enviar</button>
+      </div>
+    </div>
+
+    <!-- Cargando -->
+    <div id="stepLoading" class="step hidden">
+      <h2>Procesando tu imagen...</h2>
+      <video id="loadingVideo" loop controls>
+        <source src="resources/espera.mp4" type="video/mp4">
+      </video>
+      <button id="verResultado" class="hidden">Ver Resultado</button>
+    </div>
+
+    <!-- Paso 4 -->
+    <div id="step4" class="step hidden">
+      <h2>Tu foto procesada</h2>
+      <img id="resultImage" alt="Imagen procesada">
+      <div class="button-row">
+        <button id="retryButton">Tomar otra foto</button>
+        <button id="continueButton">Siguiente</button>
+      </div>
+    </div>
+
+    <!-- Paso 5 -->
+    <div id="step5" class="step hidden">
+      <h2>Último paso</h2>
+      <label for="email">Ingresa tu correo:</label>
+      <input type="email" id="email" name="email" required>
+      <div class="button-row">
+        <button id="finishButton">Enviar mail</button>
+        <button id="printButton">🖨️ Imprimir</button>
+      </div>
+    </div>
+
+    <p id="status"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
